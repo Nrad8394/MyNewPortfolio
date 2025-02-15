@@ -1,14 +1,20 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { Navigation } from "@/components/navigation"
+import { SkipLink } from "@/components/skip-link"
+import { Chatbot } from "@/components/chat-bot"
+import { Explorer } from "@/components/explorer"
+import { AnimatedBackground } from "@/components/animated-background"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: 'Benjamin Karanja - Full Stack Software Developer',
-  description: 'Portfolio of Benjamin Karanja, showcasing skills in full stack development, AI, and more.',
+export const metadata: Metadata = {
+  title: "Modern Portfolio",
+  description: "A modern and interactive portfolio website",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -19,15 +25,23 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <SkipLink />
+          <AnimatedBackground />
+          <div className="min-h-screen bg-gradient-to-b from-background/50 to-muted/50">
+            <Navigation />
+            <div id="main-content" tabIndex={-1}>
+              {children}
+            </div>
           </div>
+          <Chatbot />
+          <Explorer />
         </ThemeProvider>
       </body>
     </html>
   )
 }
 
+
+
+import './globals.css'

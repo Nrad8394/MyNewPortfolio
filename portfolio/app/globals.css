@@ -2,108 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .border-border {
-    border-color: var(--border);
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 262.1 83.3% 57.8%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 263.4 70% 50.4%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 263.4 70% 50.4%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263.4 70% 50.4%;
   }
 }
 
 @layer base {
-  /* Define root CSS variables for light theme */
-  :root {
-    /* Light Mode Colors */
-    --background: hsl(210, 20%, 98%); /* Light background */
-    --foreground: hsl(210, 10%, 20%); /* Darker foreground for better contrast */
-
-    --muted: hsl(210, 20%, 85%);
-    --muted-foreground: hsl(210, 10%, 40%);
-
-    --accent: hsl(213, 30%, 25%);
-    --accent-foreground: hsl(210, 80%, 98%);
-
-    --popover: hsl(210, 20%, 98%);
-    --popover-foreground: hsl(210, 10%, 50%);
-
-    --border: hsl(210, 15%, 80%); /* Lighter border */
-    --input: hsl(210, 20%, 90%);
-
-    --card: hsl(210, 20%, 97%);
-    --card-foreground: hsl(210, 10%, 20%);
-
-    --primary: hsl(216, 100%, 50%); /* Accent color */
-    --primary-foreground: hsl(220, 90%, 10%);
-
-    --secondary: hsl(216, 15%, 55%);
-    --secondary-foreground: hsl(210, 40%, 98%);
-
-    --destructive: hsl(0, 100%, 40%);
-    --destructive-foreground: hsl(210, 90%, 10%);
-
-    --ring: hsl(216, 50%, 60%);
-    --radius: 0.5rem;
-  }
-
-  /* Define styles for dark mode */
-  .dark {
-    /* Dark Mode Colors */
-    --background: hsl(224, 71%, 12%); /* Dark background */
-    --foreground: hsl(213, 31%, 91%); /* Lighter foreground for better contrast */
-
-    --muted: hsl(223, 47%, 20%);
-    --muted-foreground: hsl(215.4, 16.3%, 56.9%);
-
-    --accent: hsl(216, 34%, 17%);
-    --accent-foreground: hsl(210, 40%, 98%);
-
-    --popover: hsl(224, 71%, 4%);
-    --popover-foreground: hsl(215, 20.2%, 65.1%);
-
-    --border: hsl(216, 34%, 17%);
-    --input: hsl(216, 34%, 17%);
-
-    --card: hsl(224, 71%, 6%);
-    --card-foreground: hsl(213, 31%, 91%);
-
-    --primary: hsl(210, 40%, 98%);
-    --primary-foreground: hsl(222.2, 47.4%, 1.2%);
-
-    --secondary: hsl(222.2, 47.4%, 11.2%);
-    --secondary-foreground: hsl(210, 40%, 98%);
-
-    --destructive: hsl(0, 63%, 31%);
-    --destructive-foreground: hsl(210, 40%, 98%);
-
-    --ring: hsl(216, 34%, 17%);
-  }
-
-  /* Global styles */
   * {
-    box-sizing: border-box;
+    @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  /* Custom utility for muted text */
-  .text-muted-foreground {
-    color: var(--muted-foreground);
-  }
-
-  /* Custom utility for primary text */
-  .text-primary {
-    color: var(--primary);
-  }
-
-  h1, h2 {
-    @apply font-bold text-primary;
-  }
-  h3, h4, h5, h6 {
-    @apply font-bold text-blue-400;
-  }
-  p {
-    @apply text-muted-foreground;
-  }
-
 }
+
