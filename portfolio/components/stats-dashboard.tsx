@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts"
-import type { ProjectStats, CodingStats, GithubStats } from "@/types"
+import type { ProjectStats, CodingStats, GithubStats } from "@/types/stats"
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"]
 

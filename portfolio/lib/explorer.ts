@@ -1,5 +1,5 @@
-import type { ExplorerSection, Achievement } from "@/types"
-import type { ExplorerProgress } from "@/types"
+import type { ExplorerSection, Achievement } from "@/types/explorer"
+import type { ExplorerProgress } from "@/types/explorer"
 
 export const explorerSections: ExplorerSection[] = [
   {
@@ -26,12 +26,12 @@ export const explorerSections: ExplorerSection[] = [
     path: "/projects",
     description: "View my work",
   },
-  {
-    id: "blog",
-    label: "Blog",
-    path: "/blog",
-    description: "Read my articles",
-  },
+  // {
+  //   id: "blog",
+  //   label: "Blog",
+  //   path: "/blog",
+  //   description: "Read my articles",
+  // },
   {
     id: "timeline",
     label: "Timeline",
@@ -43,6 +43,12 @@ export const explorerSections: ExplorerSection[] = [
     label: "Testimonials",
     path: "/testimonials",
     description: "What others say",
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    path: "/resume",
+    description: "Download my CV",
   },
   {
     id: "contact",

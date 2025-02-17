@@ -10,7 +10,7 @@ import { ChevronDown, ChevronUp, Trophy, X } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { explorerSections, achievements, calculateProgress, checkAchievements } from "@/lib/explorer"
-import type { ExplorerProgress } from "@/types"
+import type { ExplorerProgress } from "@/types/explorer"
 
 export function Explorer() {
   const pathname = usePathname()
@@ -51,6 +51,21 @@ export function Explorer() {
       localStorage.setItem("portfolioProgress", JSON.stringify(updatedProgress))
     }
   }, [pathname, progress])
+
+  // Interval to refresh progress every 5 seconds
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const stored = localStorage.getItem("portfolioProgress")
+      if (stored) {
+        const updatedProgress = JSON.parse(stored)
+        if (JSON.stringify(updatedProgress) !== JSON.stringify(progress)) {
+          setProgress(updatedProgress)
+        }
+      }
+    }, 1000)
+
+    return () => clearInterval(intervalId) // Clean up interval on unmount
+  }, [progress])
 
   if (!isOpen) {
     return (
@@ -152,4 +167,3 @@ export function Explorer() {
     </Card>
   )
 }
-

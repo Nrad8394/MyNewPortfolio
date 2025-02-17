@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, Search, Twitter, Linkedin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import type { BlogPost, BlogCategory } from "@/types"
+import type { BlogPost, BlogCategory } from "@/types/blog"
 
 const categories: BlogCategory[] = [
   { name: "All", slug: "all", count: 6 },

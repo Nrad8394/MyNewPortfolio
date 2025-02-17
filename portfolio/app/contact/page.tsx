@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import emailjs from "emailjs-com" // Import EmailJS
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -29,13 +30,38 @@ export default function ContactPage() {
     },
   })
 
+  // EmailJS configuration (replace these with your credentials)
+  const serviceID = "service_5adhn4q"  // Replace with your service ID
+  const templateID = "template_qmcwsxb" // Replace with your template ID
+  const userID = "bFJ0Gpn0_36zLrxRT" // Replace with your user ID
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    console.log(values)
-    setIsSubmitting(false)
-    form.reset()
+
+    // Create template parameters object
+    const templateParams = {
+      from_name: values.name,
+      to_name: "Bejamin",
+      message: values.message,
+      reply_to: values.email,
+      
+    }
+
+    try {
+      // Send email using EmailJS
+      const response = await emailjs.send(serviceID, templateID, templateParams, userID)
+
+      // Handle successful response
+      console.log('SUCCESS!', response.status, response.text)
+      alert("Your message has been sent successfully!")
+    } catch (error) {
+      // Handle error response
+      console.error("FAILED...", error)
+      alert("Something went wrong. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+      form.reset()
+    }
   }
 
   return (
@@ -138,4 +164,3 @@ export default function ContactPage() {
     </main>
   )
 }
-

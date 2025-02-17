@@ -9,74 +9,73 @@ import { useState } from "react"
 const funFacts = [
   {
     icon: <Coffee className="h-6 w-6" />,
-    title: "Coffee Enthusiast",
-    description: "I've tried over 50 different coffee beans from around the world",
-    details: "Currently on a quest to find the perfect espresso blend!",
+    title: "Coffee Connoisseur",
+    description: "I’ve consumed more coffee than I’d like to admit.",
+    details: "Currently experimenting with different beans and brewing methods, aiming to find the perfect cup that’ll keep me caffeinated and somewhat productive.",
   },
   {
     icon: <Code className="h-6 w-6" />,
-    title: "First Line of Code",
-    description: "Wrote my first program at age 12",
-    details: "It was a simple calculator in BASIC, and I've been hooked ever since!",
+    title: "Code Whisperer",
+    description: "Wrote my first 'Hello, World!' at age 12.",
+    details: "It was in BASIC, on a clunky old computer. It took forever to compile, but it sparked a lifelong obsession with making things work on a screen.",
   },
   {
     icon: <Plane className="h-6 w-6" />,
-    title: "Travel Bug",
-    description: "Visited 15 countries and counting",
-    details: "My favorite destination so far has been Japan's tech scene!",
+    title: "Global Explorer",
+    description: "Visited 15 counties in my Country — and counting!",
+    details: "I’m a sucker for new experiences, and  tech hubs have been my favorite so far. ",
   },
   {
     icon: <BookOpen className="h-6 w-6" />,
-    title: "Avid Reader",
-    description: "I read at least one book every month",
-    details: "My favorite genre is sci-fi, but I also enjoy tech books.",
+    title: "Book Devourer",
+    description: "At least one audio book at any time keeps the boredom away.",
+    details: "Sci-fi is my go-to, but I’ll pick up anything that has a cool idea or teaches me something new. From robots to rockets, I’m there. Currently enjoying Nature of a Preditor",
   },
   {
     icon: <Trophy className="h-6 w-6" />,
-    title: "Hackathon Winner",
-    description: "Won multiple hackathons in software development",
-    details: "Building innovative solutions under pressure is my forte.",
+    title: "Hackathon Veteran",
+    description: "I’ve got a few hackathon Victories under my belt.",
+    details: "If there’s an all-nighter involved and a problem to solve, you’ll find me leading a team to victory. Stress and deadlines are my secret weapon.",
   },
   {
     icon: <BrainCircuit className="h-6 w-6" />,
     title: "AI Enthusiast",
-    description: "Exploring AI-driven applications in cybersecurity and automation",
-    details: "Currently working on a machine-learning-powered anomaly detection system.",
+    description: "Deep diving into the world of AI.",
+    details: "From machine learning models to neural networks, I’m all in. Right now, I’m building an AI-driven anomaly detection system (aka, my ‘tech brainchild’).",
   },
-];
-
+]
 const hobbies = [
   {
     icon: <Gamepad2 className="h-6 w-6" />,
-    title: "Gaming",
-    description: "Passionate about indie games and game development",
+    title: "Gaming Guru",
+    description: "Indie games are my jam, and I’m always dreaming up my next big game idea. Also, I love watching game streamers for tips and inspiration.",
   },
   {
     icon: <Headphones className="h-6 w-6" />,
-    title: "Music Production",
-    description: "Creating electronic music in my free time",
+    title: "Beat Maker & DJ",
+    description: "When I’m not coding, I’m mixing music with Virtual DJ. I live for creating beats and crafting the perfect transitions for a great mix.",
   },
   {
     icon: <Heart className="h-6 w-6" />,
-    title: "Open Source",
-    description: "Contributing to community projects",
+    title: "Open Source Contributor",
+    description: "I believe in the power of the community — pushing code and ideas to help make the digital world a better place.",
   },
   {
     icon: <Briefcase className="h-6 w-6" />,
-    title: "Freelancing",
-    description: "Helping startups and businesses build digital solutions",
+    title: "Freelance Hustler",
+    description: "I work with startups and businesses, transforming their ideas into digital solutions — all from the comfort of my own desk.",
   },
   {
     icon: <Layers className="h-6 w-6" />,
-    title: "UI/UX Design",
-    description: "Designing intuitive user interfaces and experiences",
+    title: "UI/UX Enthusiast",
+    description: "I live and breathe user experience. Crafting interfaces that are both beautiful and intuitive is my passion.",
   },
   {
     icon: <Terminal className="h-6 w-6" />,
-    title: "Automation",
-    description: "Building scripts and tools to automate workflows",
+    title: "Script Wizard",
+    description: "I automate everything I can. If it’s repetitive, I’m writing a script to make it disappear.",
   },
-];
+]
 
 
 export default function AboutPage() {
@@ -90,27 +89,35 @@ export default function AboutPage() {
         transition={{ duration: 0.5 }}
         className="space-y-8"
       >
-        <section className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight">About Me</h1>
-          <div className="prose prose-gray dark:prose-invert max-w-none">
+      <section className="space-y-6">
+        <h1 className="text-4xl font-bold tracking-tight">About Me</h1>
+        <div className="prose prose-gray dark:prose-invert max-w-none">
+          <p className="text-lg text-muted-foreground">
+            I'm a passionate full-stack developer with a love for creating beautiful and functional web applications.
+            With over 3 years of experience in web and Mobile Full stack development, I specialize in building modern, responsive, and
+            user-friendly applications. I believe great development isn’t just about code, but about solving problems
+            with innovative solutions.
+          </p>
+
+          <div className={`transition-all duration-500 ${expandedBio ? "max-h-[500px]" : "max-h-0"} overflow-hidden`}>
             <p className="text-lg text-muted-foreground">
-              I'm a passionate full-stack developer with a love for creating beautiful and functional web applications.
-              With over 5 years of experience in web development, I specialize in building modern, responsive, and
-              user-friendly applications.
+              My journey in tech started when I built my first vanilla html,css and js website. Since then, I've worked
+              with startups and established companies, helping them bring their ideas to life through code. I'm
+              particularly interested in the intersection of design and development, creating experiences that are
+              both beautiful and functional. When I'm not coding, I'm likely exploring the latest design trends or
+              building fun side projects!
             </p>
-            <div className={`transition-all duration-500 ${expandedBio ? "max-h-[500px]" : "max-h-0"} overflow-hidden`}>
-              <p className="text-lg text-muted-foreground">
-                My journey in tech started when I built my first website for a local business. Since then, I've worked
-                with startups and established companies, helping them bring their ideas to life through code. I'm
-                particularly interested in the intersection of design and development, creating experiences that are
-                both beautiful and functional.
-              </p>
-            </div>
-            <Button variant="ghost" onClick={() => setExpandedBio(!expandedBio)} className="mt-4">
-              {expandedBio ? "Read Less" : "Read More"}
-            </Button>
           </div>
-        </section>
+
+          <Button
+            variant="ghost"
+            onClick={() => setExpandedBio(!expandedBio)}
+            className="mt-4 text-lg font-semibold text-primary-500 hover:text-primary-600"
+          >
+            {expandedBio ? "Read Less" : "Read More"}
+          </Button>
+        </div>
+      </section>
 
         <section className="space-y-4">
           <h2 className="text-3xl font-bold tracking-tight">Fun Facts</h2>

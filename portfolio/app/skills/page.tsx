@@ -40,7 +40,7 @@ const skillCategories = [
         name: "React",
         icon: <Layout className="h-8 w-8" />,
         proficiency: 90,
-        experience: "4 years",
+        experience: "3 years",
         projects: "Built 20+ production applications",
       },
       {
@@ -61,14 +61,14 @@ const skillCategories = [
         name: "JavaScript (ES6+)",
         icon: <Code className="h-8 w-8" />,
         proficiency: 95,
-        experience: "5 years",
+        experience: "3 years",
         projects: "Core language for frontend & backend",
       },
       {
         name: "Tailwind CSS",
         icon: <Wind className="h-8 w-8" />,
         proficiency: 90,
-        experience: "2 years",
+        experience: "3 years",
         projects: "15+ styled applications",
       },
       {
@@ -101,7 +101,7 @@ const skillCategories = [
         name: "Node.js",
         icon: <Server className="h-8 w-8" />,
         proficiency: 85,
-        experience: "4 years",
+        experience: "3 years",
         projects: "Built multiple REST APIs",
       },
       {
@@ -115,7 +115,7 @@ const skillCategories = [
         name: "Django & DRF",
         icon: <Code2 className="h-8 w-8" />,
         proficiency: 85,
-        experience: "2 years",
+        experience: "3 years",
         projects: "CMS, API development, and e-commerce sites",
       },
       {
@@ -143,8 +143,15 @@ const skillCategories = [
         name: "REST APIs",
         icon: <CloudLightning className="h-8 w-8" />,
         proficiency: 90,
-        experience: "4 years",
+        experience: "3 years",
         projects: "Extensively used in backend development",
+      },
+      {
+        name: "Celery",
+        icon: <Server className="h-8 w-8" />,
+        proficiency: 75,
+        experience: "1 year",
+        projects: "Task queue for background jobs in Django",
       },
     ],
   },
@@ -155,14 +162,21 @@ const skillCategories = [
         name: "PostgreSQL",
         icon: <Database className="h-8 w-8" />,
         proficiency: 85,
-        experience: "4 years",
+        experience: "3 years",
         projects: "Primary database for scalable applications",
+      },
+      {
+        name: "MySQL",
+        icon: <Database className="h-8 w-8" />,
+        proficiency: 85,
+        experience: "3 years",
+        projects: "Secondary database for scalable applications",
       },
       {
         name: "MongoDB",
         icon: <Boxes className="h-8 w-8" />,
         proficiency: 80,
-        experience: "3 years",
+        experience: "2 years",
         projects: "NoSQL solutions for dynamic data",
       },
       {
@@ -183,22 +197,48 @@ const skillCategories = [
         name: "AWS (EC2, S3, RDS)",
         icon: <Terminal className="h-8 w-8" />,
         proficiency: 75,
-        experience: "3 years",
+        experience: "2 years",
         projects: "Cloud infrastructure and deployment",
       },
       {
         name: "Git & GitHub",
         icon: <GitBranch className="h-8 w-8" />,
         proficiency: 95,
-        experience: "5 years",
+        experience: "3 years",
         projects: "Version control and CI/CD integration",
       },
       {
         name: "CI/CD (GitHub Actions, Jenkins)",
         icon: <GitCommit className="h-8 w-8" />,
         proficiency: 75,
-        experience: "2 years",
+        experience: "1 year",
         projects: "Automated testing and deployment",
+      },
+    ],
+  },
+  {
+    title: "Design & Tools",
+    skills: [
+      {
+        name: "Figma",
+        icon: <BookOpen className="h-8 w-8" />,
+        proficiency: 85,
+        experience: "2 years",
+        projects: "UI/UX design for web and mobile apps",
+      },
+      {
+        name: "Canva",
+        icon: <BookOpen className="h-8 w-8" />,
+        proficiency: 75,
+        experience: "2 years",
+        projects: "Designing graphics, presentations, and social media content",
+      },
+      {
+        name: "CorelDRAW",
+        icon: <BookOpen className="h-8 w-8" />,
+        proficiency: 70,
+        experience: "1 year",
+        projects: "Vector graphics for print and digital designs",
       },
     ],
   },
@@ -235,7 +275,28 @@ const skillCategories = [
       },
     ],
   },
+  {
+    title: "Messaging & WebSockets",
+    skills: [
+      {
+        name: "EMQX Message Broker",
+        icon: <Cloud className="h-8 w-8" />,
+        proficiency: 80,
+        experience: "2 years",
+        projects: "Built real-time messaging and IoT systems",
+      },
+      {
+        name: "WebSockets",
+        icon: <Terminal className="h-8 w-8" />,
+        proficiency: 80,
+        experience: "2 years",
+        projects: "Real-time data communication and live updates",
+      },
+    ],
+  },
 ];
+
+
 
 
 export default function SkillsPage() {

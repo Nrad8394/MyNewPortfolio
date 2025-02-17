@@ -10,76 +10,128 @@ import Link from "next/link"
 import Image from "next/image"
 import { ProjectCard } from "@/components/project-card"
 import type { Project } from "@/types"
-
-const categories = ["All", "Web Apps", "Mobile", "Open Source"]
-
+// Custom component for Demo Alert
+function DemoAlert() {
+  return (
+    <div className="p-4 bg-white text-yellow-800 rounded-lg">
+      <p className="font-medium">To request a demo, please <Link href="/contact" className="text-blue-600">contact me here</Link>.</p>
+    </div>
+  )
+}
+const categories = ["All", "Web Apps", "Mobile", "Open Source", "AI", "IoT"]
 const projects: Project[] = [
   {
     title: "Modern Portfolio Website",
     description: "A modern portfolio website built with Next.js and Tailwind CSS",
     category: "Web Apps",
-    image: "/placeholder.svg",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
+    image: "/assets/portfolio.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI", "Framer Motion"],
+    github: "https://github.com/Nrad8394/MyNewPortfolio.git",
     demo: "https://demo.com",
     details:
       "A fully responsive portfolio website with modern design, animations, and interactive features. Includes a blog, project showcase, and contact form.",
   },
   {
-    title: "E-commerce Platform",
+    title: "Harmosoft Book Store",
     description: "A full-stack e-commerce solution with real-time inventory management",
     category: "Web Apps",
-    image: "/placeholder.svg",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    image: "/assets/bookstore.png",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Mpesa Payment Gateway", "Django Rest Framework"],
+    github: "https://github.com/Nrad8394/Harmosoft-Book-Store-Frontend.git",
+    demo: "https://harmosoftbookstore.co.ke/",
     details:
       "Built a scalable e-commerce platform with features including real-time inventory tracking, secure payment processing, and an intuitive admin dashboard.",
   },
   {
-    title: "Task Management App",
-    description: "Mobile-first task management application with collaborative features",
-    category: "Mobile",
-    image: "/placeholder.svg",
-    tech: ["React Native", "Redux", "Node.js", "MongoDB"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    details: "Developed a cross-platform mobile application for task management with real-time collaboration features.",
-  },
-  {
-    title: "Open Source UI Library",
-    description: "A collection of reusable React components with accessibility in mind",
-    category: "Open Source",
-    image: "/placeholder.svg",
-    tech: ["React", "TypeScript", "Storybook", "Jest"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    details:
-      "Created and maintained a popular open-source UI component library focusing on accessibility and developer experience.",
-  },
-  {
-    title: "AI-Powered Chat Application",
-    description: "Real-time chat application with AI-powered features",
+    title: "Class Attendance System",
+    description: "A comprehensive system for managing attendance with geolocation-based verification, real-time tracking, and role-based access",
     category: "Web Apps",
-    image: "/placeholder.svg",
+    image: "/assets/attendance.png",
+    tech: ["Next.js", "Django", "TypeScript", "Tailwind CSS", "GraphQL", "Redis", "WebSocket", "dlib", "Firebase"],
+    github: "https://github.com/yourusername/class-attendance-system",
+    demo: null,
+    details:"Developed a fully functional Class Attendance System that integrates geolocation-based verification for students, facial recognition authentication for attendance signing, and real-time data processing using WebSockets. The system includes role-based access control with specific functionalities for students, lecturers, Heads of Departments (HoD), and the Departmental Professors (DP) for tracking attendance and generating reports. The platform also supports features like dynamic timetable management, integration with Mpesa for payment processing, and advanced reporting tools for tracking class and department-wide attendance, CAT conformance, and timetable adherence. The mobile app supports attendance signing via GPS/Wi-Fi for students and manual sign-ins by lecturers. Facial recognition ensures students can sign in even without their personal devices.",
+  },
+  {
+    title: "Daraja Django Package Module",
+    description: "A Django package to integrate Mpesa PayBill and STK endpoints for easy payment processing",
+    category: "Open Source",
+    image: "/assets/stk.png",
+    tech: ["Django", "Python", "Mpesa API", "REST API", "Celery"],
+    github: "https://github.com/yourusername/daraja-django-package",
+    demo: null,
+    details:
+      "Developed an open-source Django package module that integrates the Mpesa PayBill API and provides a ready-to-use STK endpoint for seamless payment processing. The package simplifies integrating Mpesa payments into any Django application, with support for both PayBill and the STK push payment methods. Also includes easy configuration, error handling, and background task management using Celery.",
+  },
+  {
+    title: "Tovu Sacco Web app",
+    description: "A community savings and credit cooperative web application",
+    category: "Web Apps",
+    image: "/assets/tovuweb.png",
     tech: ["Next.js", "OpenAI", "WebSocket", "Redis"],
     github: "https://github.com",
-    demo: "https://demo.com",
+    demo: "https://tovusacco.org/",
     details:
-      "Built a modern chat application with AI features like smart replies, sentiment analysis, and language translation.",
+      "Designed and developed a comprehensive Web app for financial operations management.",
   },
   {
-    title: "Fitness Tracking Mobile App",
-    description: "Cross-platform fitness tracking application with social features",
+    title: "Stellar Physio Wellness app",
+    description: "stepping up the game in physiotherapy",
     category: "Mobile",
-    image: "/placeholder.svg",
+    image: "/assets/stellar.jpeg",
     tech: ["React Native", "GraphQL", "Node.js", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://demo.com",
+    github: "https://github.com/Community-Guardian/StellarPysio.git",
+    demo: null,
     details:
-      "Developed a comprehensive fitness tracking app with workout plans, progress tracking, and social sharing features.",
+      "StellarPysio is a comprehensive platform designed to provide advanced data analysis, visualization, and management tools for physiological data. It includes functionalities for user authentication, service management, payment processing, appointment scheduling, notifications, logging, feedback collection, and more.",
   },
-]
+  // New projects
+  {
+    title: "Community Guardian Mobile App",
+    description: "Mobile app for community engagement to reduce crime",
+    category: "Mobile",
+    image: "/assets/community.jpeg",
+    tech: ["React Native", "Node.js", "Firebase", "Push Notifications"],
+    github: "https://github.com/Community-Guardian/CommunityGuardian-Frontend.git",
+    demo: null,
+    details:
+      "Designed an app focused on community engagement with anonymous reporting, emergency alerts, and real-time updates from local law enforcement.",
+  },
+  {
+    title: "Immunity Shield Intrusion Detection System",
+    description: "AI-based intrusion detection system for endpoint security",
+    category: "AI",
+    image: "/assets/placeholder.svg",
+    tech: ["Python", "Machine Learning", "TensorFlow", "Scikit-Learn"],
+    github: "https://github.com/Jkuat-CyberSecurity-2024/AIThreatDetection.git",
+    demo: null,
+    details:
+      "Built an advanced intrusion detection system (IDS) using machine learning algorithms to detect and isolate potential threats, improving cybersecurity measures.",
+  },
+  {
+    title: "CarIgnition Vehicle Security Prototype",
+    description: "IoT-based prototype for vehicle security and automation",
+    category: "IoT",
+    image: "/assets/placeholder.svg",
+    tech: ["IoT", "Node.js", "Bluetooth", "Encryption"],
+    github: "https://github.com/REMOTE-CAR-IGNITION/RemoteCarIgnition-Frontend.git",
+    demo: null,
+    details:
+      "Developed an IoT-based prototype to remotely start and secure vehicles, enhancing vehicle security with encrypted communication channels.",
+  },
+  {
+    title: "Swift Traders Mobile App",
+    description: "Educational mobile app for financial literacy and trading skills",
+    category: "Mobile",
+    image: "/assets/swift.png",
+    tech: ["React Native", "Redux", "Firebase", "Chart.js"],
+    github: "https://github.com/Community-Guardian/SwiftFrontend.git",
+    demo: null,
+    details:
+      "Developed a mobile app aimed at enhancing financial literacy and trading skills, helping users understand investment strategies.",
+  },
+];
+
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -88,6 +140,14 @@ export default function ProjectsPage() {
   const filteredProjects = projects.filter(
     (project) => selectedCategory === "All" || project.category === selectedCategory,
   )
+
+  const handleProjectSelect = (project: Project) => {
+    setSelectedProject(project)  // Open dialog by setting the selected project
+  }
+
+  const handleRequestDemo = (projectTitle: string) => {
+    alert(`Please request a demo for the project: ${projectTitle}`);
+  }
 
   return (
     <main className="container py-12" id="main-content">
@@ -111,16 +171,21 @@ export default function ProjectsPage() {
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.title} project={project} index={index} onSelect={setSelectedProject} />
-            ))}
-          </AnimatePresence>
+          {filteredProjects.map((project, index) => (
+            <AnimatePresence key={project.title} mode="popLayout">
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+                onSelect={handleProjectSelect}  // Use handleProjectSelect here
+              />
+            </AnimatePresence>
+          ))}
         </div>
 
         <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
           {selectedProject && (
-            <DialogContent className="max-w-2xl">
+            <DialogContent className="max-w-2xl overflow-y-auto max-h-[80vh]"> {/* Allowing scroll on dialog content */}
               <DialogHeader>
                 <DialogTitle>{selectedProject.title}</DialogTitle>
                 <DialogDescription>{selectedProject.description}</DialogDescription>
@@ -145,18 +210,22 @@ export default function ProjectsPage() {
                   ))}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <Button asChild className="flex-1 sm:flex-none">
-                    <Link
-                      href={selectedProject.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center"
-                    >
-                      <Globe className="mr-2 h-4 w-4" />
-                      View Demo
-                      <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </Button>
+                  {selectedProject.demo ? (
+                    <Button asChild className="flex-1 sm:flex-none">
+                      <Link
+                        href={selectedProject.demo || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center"
+                      >
+                        <Globe className="mr-2 h-4 w-4" />
+                        View Demo
+                        <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    </Button>
+                  ) : (
+                    <DemoAlert />
+                  )}
                   <Button variant="outline" asChild className="flex-1 sm:flex-none">
                     <Link
                       href={selectedProject.github}
@@ -184,4 +253,3 @@ export default function ProjectsPage() {
     </main>
   )
 }
-

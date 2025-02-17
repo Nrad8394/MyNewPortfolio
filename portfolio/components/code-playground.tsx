@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Play, RefreshCw } from "lucide-react"
 import Editor from "@monaco-editor/react"
-import type { CodeExample } from "@/types"
+import type { CodeExample } from "@/types/playground"
 
 interface CodePlaygroundProps {
   examples: CodeExample[]

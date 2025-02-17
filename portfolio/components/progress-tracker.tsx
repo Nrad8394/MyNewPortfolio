@@ -6,7 +6,7 @@ import { Progress } from "@/components/ui/progress"
 import { Button } from "@/components/ui/button"
 import { X } from "lucide-react"
 
-const sections = ["home", "about", "skills", "projects", "blog", "timeline", "testimonials", "contact"]
+const sections = ["home", "about", "skills", "projects",  "timeline",  "contact", "resume"]
 
 export function ProgressTracker() {
   const [visitedSections, setVisitedSections] = useState<Set<string>>(new Set())

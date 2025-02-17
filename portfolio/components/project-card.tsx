@@ -37,7 +37,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
             />
           </div>
         </CardHeader>
-        <CardContent className="space-y-4 p-4">
+        <CardContent className="space-y-4 p-4 z-10">
           <CardTitle className="line-clamp-1">{project.title}</CardTitle>
           <CardDescription className="line-clamp-2">{project.description}</CardDescription>
           <div className="flex flex-wrap gap-2">
@@ -48,7 +48,7 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
             ))}
           </div>
         </CardContent>
-        <CardFooter className="p-4 pt-0">
+        <CardFooter className="p-4 pt-0 z-10">
           <div className="flex w-full gap-2">
             <Button variant="outline" size="sm" className="flex-1" onClick={() => onSelect(project)}>
               Learn More
@@ -63,24 +63,27 @@ export function ProjectCard({ project, index, onSelect }: ProjectCardProps) {
                 <Github className="h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="outline" size="icon" asChild>
-              <Link
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${project.title} demo`}
-              >
-                <Globe className="h-4 w-4" />
-              </Link>
-            </Button>
+            {project.demo && (
+              <Button variant="outline" size="icon" asChild>
+                <Link
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${project.title} demo`}
+                >
+                  <Globe className="h-4 w-4" />
+                </Link>
+              </Button>
+            )}
           </div>
         </CardFooter>
+
+        {/* Gradient overlay with pointer-events-none */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 transition-opacity group-hover:opacity-100"
+          className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 opacity-0 transition-opacity group-hover:opacity-100 z-0 pointer-events-none"
           aria-hidden="true"
         />
       </Card>
     </motion.div>
   )
 }
-

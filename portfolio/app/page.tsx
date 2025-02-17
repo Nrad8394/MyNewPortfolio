@@ -1,98 +1,177 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import Link from "next/link"
-import { useTypewriter, Cursor } from "react-simple-typewriter"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { useEffect, useState, useCallback } from "react"
+import Home from "@/app/home/page"
+import About from "@/app/about/page"
+import Blog from "@/app/blog/page"
+import Contact from "@/app/contact/page"
+import Projects from "@/app/projects/page"
+import Resume from "@/app/resume/page"
+import Testimonials from "@/app/testimonials/page"
+import Timeline from "@/app/timeline/page"
+import Skills from "@/app/skills/page"
+import { explorerSections, checkAchievements } from "@/lib/explorer"
+import type { ExplorerProgress, ExplorerSection } from "@/types/explorer"
 
-export default function Home() {
-  const [text] = useTypewriter({
-    words: ["Hi, I'm Karanja Benjamin", "Full-Stack Developer", "React & Django Enthusiast", "Building Scalable Solutions"],
-    loop: true,
-    delaySpeed: 2000,
-  });
+export default function HomePage() {
+  const [progress, setProgress] = useState<ExplorerProgress>({
+    visitedSections: [],
+    achievements: [],
+    lastVisited: undefined,
+    totalTime: 0,
+  })
+
+  const [timelineTime, setTimelineTime] = useState(0)
+
+  // Load progress from localStorage on mount
+  useEffect(() => {
+    const storedProgress = localStorage.getItem("portfolioProgress")
+    if (storedProgress) {
+      setProgress(JSON.parse(storedProgress) as ExplorerProgress)
+    }
+  }, [])
+
+  // Track total time spent on the page
+  useEffect(() => {
+    const startTime = Date.now()
+
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const elapsedTime = Date.now() - startTime
+
+        const updatedProgress = {
+          ...prev,
+          totalTime: elapsedTime,
+          achievements: checkAchievements({ ...prev, totalTime: elapsedTime }).map((a) => a.id),
+        }
+
+        return updatedProgress
+      })
+    }, 5000) // Updates every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Handle section visibility tracking
+  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
+    setProgress((prevProgress) => {
+      let updatedProgress = { ...prevProgress }
+      let isUpdated = false
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id
+
+          if (!updatedProgress.visitedSections.includes(sectionId)) {
+            updatedProgress.visitedSections = [...updatedProgress.visitedSections, sectionId]
+            updatedProgress.lastVisited = new Date().toISOString()
+            updatedProgress.achievements = checkAchievements(updatedProgress).map((a) => a.id)
+            isUpdated = true
+          }
+        }
+      })
+
+      if (isUpdated) {
+        localStorage.setItem("portfolioProgress", JSON.stringify(updatedProgress))
+        return updatedProgress
+      }
+
+      return prevProgress
+    })
+  }, [])
+
+  // Observe sections on mount
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.3 })
+
+    setTimeout(() => {
+      explorerSections.forEach((section) => {
+        const element = document.getElementById(section.id)
+        if (element) {
+          observer.observe(element)
+        } else {
+          console.warn("Section not found:", section.id)
+        }
+      })
+    }, 100)
+
+    return () => observer.disconnect()
+  }, [handleIntersection])
+
+  // Handle Timeline time tracking separately and mark as read
+  useEffect(() => {
+    let timelineStartTime: number | undefined
+  
+    const handleTimelineIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.target.id === "timeline" && entry.isIntersecting) {
+          if (!timelineStartTime) {
+            timelineStartTime = Date.now()
+          }
+  
+          // Mark 'timeline' section as read when visible
+          setProgress((prevProgress) => {
+            // Ensure that we are creating a new copy of progress first
+            const updatedProgress = { ...prevProgress }
+  
+            if (!updatedProgress.visitedSections.includes("timeline")) {
+              updatedProgress.visitedSections = [...updatedProgress.visitedSections, "timeline"]
+              updatedProgress.lastVisited = new Date().toISOString()
+  
+              // Call checkAchievements with updated progress
+              updatedProgress.achievements = checkAchievements(updatedProgress).map((a) => a.id)
+            }
+  
+            // Save the updated progress to localStorage
+            localStorage.setItem("portfolioProgress", JSON.stringify(updatedProgress))
+  
+            return updatedProgress
+          })
+        } else if (entry.target.id === "timeline" && !entry.isIntersecting && timelineStartTime) {
+          const timeSpent = Date.now() - timelineStartTime
+          setTimelineTime(timeSpent)
+          timelineStartTime = undefined // Reset time
+        }
+      })
+    }
+  
+    const timelineObserver = new IntersectionObserver(handleTimelineIntersection, { threshold: 0.1 })
+    const timelineElement = document.getElementById("timeline")
+    if (timelineElement) {
+      timelineObserver.observe(timelineElement)
+    }
+  
+    return () => timelineObserver.disconnect()
+  }, [])
   
 
+  // Debugging log for progress updates
+  useEffect(() => {
+
+  }, [progress, timelineTime])
+
   return (
-    <main className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center p-4" id="main-content">
-      <div className="container flex flex-col items-center justify-center gap-4 px-4 text-center md:gap-8 md:px-6">
-        <motion.div
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-primary"
-        >
-          <Image src="/placeholder.svg" alt="John Doe's profile picture" className="object-cover" fill priority />
-        </motion.div>
-        <div className="space-y-3">
-          <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            <span>{text}</span>
-            <Cursor cursorColor="currentColor" />
-          </h1>
-          <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-            I create beautiful and functional websites and Mobile applications with modern technologies. Passionate about clean code and user
-            experience.
-          </p>
-        </div>
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-col gap-4 min-[400px]:flex-row"
-        >
-          <Button asChild size="lg">
-            <Link href="/projects" className="inline-flex items-center">
-              View My Work
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </Link>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/contact">Contact Me</Link>
-          </Button>
-        </motion.div>
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="flex gap-4"
-        >
-          <Button variant="ghost" size="icon" asChild>
-            <Link
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my GitHub profile"
-            >
-              <Github className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit my LinkedIn profile"
-            >
-              <Linkedin className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="mailto:contact@example.com" aria-label="Send me an email">
-              <Mail className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
-        </motion.div>
-      </div>
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-r from-primary/20 via-accent/30 to-secondary/20 opacity-50 dark:from-primary/10 dark:via-accent/20 dark:to-secondary/10"
-        aria-hidden="true"
-      >
-        <div className="absolute inset-auto right-1/2 h-56 w-[30rem] bg-gradient-to-tr from-primary to-accent blur-3xl" />
-        <div className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-to-tr from-accent to-secondary blur-3xl" />
-      </div>
+    <main className="container mx-auto py-12">
+      {explorerSections.map(({ id }) => {
+        // Dynamically mapping section IDs to their components
+        const SectionComponent = {
+          home: Home,
+          about: About,
+          skills: Skills,
+          projects: Projects,
+          // blog: Blog,
+          resume: Resume,
+          // testimonials: Testimonials,
+          timeline: Timeline,
+          contact: Contact,
+        }[id]
+
+        return SectionComponent ? (
+          <section key={id} id={id} className="mb-12">
+            <SectionComponent />
+          </section>
+        ) : null
+      })}
     </main>
   )
 }
-

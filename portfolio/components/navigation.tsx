@@ -25,18 +25,22 @@ const routes: Route[] = [
     href: "/projects",
     label: "Projects",
   },
-  {
-    href: "/blog",
-    label: "Blog",
-  },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
   {
     href: "/timeline",
     label: "Timeline",
-  },
+  },  
   {
-    href: "/testimonials",
-    label: "Testimonials",
+    href: "/resume",
+    label: "Resume",
   },
+  // {
+  //   href: "/testimonials",
+  //   label: "Testimonials",
+  // },
   {
     href: "/contact",
     label: "Contact",

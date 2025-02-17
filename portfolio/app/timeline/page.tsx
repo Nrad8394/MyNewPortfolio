@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
 import Link from "next/link"
-import type { TimelineItem } from "@/types"
+import type { TimelineItem } from "@/types/timeline"
 import { link } from "fs"
 
 const timelineItems: TimelineItem[] = [
@@ -25,7 +25,7 @@ const timelineItems: TimelineItem[] = [
     title: "Intern and Software Developer",
     subtitle: "Harmosoft",
     date: "Apr 2024 - Jul 2024",
-    organizationUrl: "https://harmosoft.co.ke",
+    link: "https://harmosoft.co.ke",
     description: "Coordinated the development of the HBS (Book Store) Project.",
     type: "work",
     details: [
@@ -37,7 +37,7 @@ const timelineItems: TimelineItem[] = [
   {
     id: "3",
     title: "Full-Stack Developer",
-    subtitle: "Tovu Sacco Admin Dashboard & Mobile App",
+    subtitle: "Tovu Sacco Web app,Admin Dashboard & Mobile App",
     date: "Jan 2025",
     description:
       "Designed and developed a comprehensive admin dashboard and mobile app for financial operations management.",
@@ -46,6 +46,7 @@ const timelineItems: TimelineItem[] = [
       "Implemented secure authentication and real-time data visualization.",
       "Managed loans, investments, transactions, and user accounts.",
     ],
+    link: "https://tovusacco.org",
   },
   {
     id: "4",
@@ -78,7 +79,7 @@ const timelineItems: TimelineItem[] = [
     title: "Full-Stack Developer",
     subtitle: "Harmosoft Book Store",
     date: "Jun 2024 - Jul 2024",
-    organizationUrl: "https://harmosoft.co.ke",
+    link: "https://harmosoftbookstore.co.ke/",
     description: "Developed an e-commerce platform for an online bookstore.",
     type: "work",
     details: [
@@ -104,8 +105,47 @@ const timelineItems: TimelineItem[] = [
     type: "work",
     details: ["Developed interactive lessons and trading simulations.", "Enhanced user experience with real-time analytics."],
   },
+  {
+    id: "9",
+    title: "SPSS Certification",
+    subtitle: "Certification Program",
+    date: "2023",
+    description: "Completed the SPSS certification program, gaining proficiency in data analysis, statistical tools, and research methodologies.",
+    type: "education",
+    details: [
+      "Mastered advanced SPSS techniques for statistical analysis.",
+      "Applied data analytics skills in research projects.",
+      "Enhanced understanding of hypothesis testing and regression analysis.",
+    ],
+  },
+  {
+    id: "10",
+    title: "W3Schools Certification",
+    subtitle: "Web Development Courses",
+    date: "2023",
+    description: "Completed various web development certifications from W3Schools, focusing on front-end and back-end technologies.",
+    type: "education",
+    details: [
+      "Certified in HTML, CSS, JavaScript, and React.",
+      "Deepened knowledge in responsive web design and modern JavaScript frameworks.",
+      "Applied concepts to build dynamic web applications.",
+    ],
+  },
+  {
+    id: "11",
+    title: "Python for Data Science",
+    subtitle: "W3Schools Certification",
+    date: "2023",
+    description: "Completed the Python for Data Science course, gaining hands-on experience in data analysis, visualization, and machine learning basics.",
+    type: "education",
+    details: [
+      "Learned to use Python libraries like Pandas, NumPy, and Matplotlib.",
+      "Developed skills in data cleaning, transformation, and visualization.",
+      "Explored machine learning models and algorithms using Python.",
+    ],
+  },
+  
 ]
-
 export default function TimelinePage() {
   return (
     <main className="container py-12">
@@ -130,6 +170,7 @@ export default function TimelinePage() {
 
 function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null)
+  
   const { scrollYProgress } = useScroll({
     target: cardRef,
     offset: ["start end", "center center"],
@@ -145,9 +186,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
       className={`relative grid gap-8 md:grid-cols-2 ${index % 2 === 0 ? "md:text-right" : "md:text-left"}`}
     >
       <div
-        className={`flex items-center ${
-          index % 2 === 0 ? "justify-end md:col-start-1" : "justify-start md:col-start-2"
-        }`}
+        className={`flex items-center ${index % 2 === 0 ? "justify-end md:col-start-1" : "justify-start md:col-start-2"}`}
       >
         <Card className="w-full">
           <CardHeader>
@@ -157,13 +196,13 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
           <CardContent className="space-y-4">
             <p className="text-sm text-muted-foreground">{item.description}</p>
             <ul className="space-y-2 text-sm">
-              {item.details.map((detail:string, i: number ) => (
+              {item.details.map((detail: string, i: number) => (
                 <li key={i}>{detail}</li>
               ))}
             </ul>
             {item.technologies && (
               <div className="flex flex-wrap gap-2">
-                {item.technologies.map((tech:string) => (
+                {item.technologies.map((tech: string) => (
                   <Badge key={tech} variant="secondary">
                     {tech}
                   </Badge>
@@ -182,9 +221,7 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
         </Card>
       </div>
       <div
-        className={`flex items-center ${
-          index % 2 === 0 ? "justify-start md:col-start-2" : "justify-end md:col-start-1"
-        }`}
+        className={`flex items-center ${index % 2 === 0 ? "justify-start md:col-start-2" : "justify-end md:col-start-1"}`}
       >
         <div className="text-lg font-semibold">{item.date}</div>
       </div>
@@ -195,4 +232,3 @@ function TimelineCard({ item, index }: { item: TimelineItem; index: number }) {
     </motion.div>
   )
 }
-
