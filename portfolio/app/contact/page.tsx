@@ -147,7 +147,7 @@ export default function ContactPage() {
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="www.linkedin.com/in/benjamin-karanja-93852523b" target="_blank">
+              <Link href="https://www.linkedin.com/in/benjamin-karanja-93852523b" target="_blank">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
