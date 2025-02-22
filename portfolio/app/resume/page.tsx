@@ -99,7 +99,7 @@ const education = [
   {
     institution: "Murang’a University Of Technology",
     degree: "Bachelor of Science in Software Engineering",
-    duration: "2021.08 - 2025.04",
+    duration: "2021.08 - 2025.04 ( Expected )",
     achievements: [
       "Pursuing Bachelor's in Software Engineering",
       "Ongoing development of practical skills in full-stack and mobile app development",
