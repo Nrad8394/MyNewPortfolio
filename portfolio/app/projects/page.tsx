@@ -27,7 +27,7 @@ const projects: Project[] = [
     image: "/assets/portfolio.png",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI", "Framer Motion"],
     github: "https://github.com/Nrad8394/MyNewPortfolio.git",
-    demo: "https://demo.com",
+    demo: "https://karanjasoftwareengineer.great-site.net/",
     details:
       "A fully responsive portfolio website with modern design, animations, and interactive features. Includes a blog, project showcase, and contact form.",
   },
@@ -48,7 +48,7 @@ const projects: Project[] = [
     category: "Web Apps",
     image: "/assets/attendance.png",
     tech: ["Next.js", "Django", "TypeScript", "Tailwind CSS", "GraphQL", "Redis", "WebSocket", "dlib", "Firebase"],
-    github: "https://github.com/yourusername/class-attendance-system",
+    github: "https://github.com/Community-Guardian/Attendance-System-Frontend.git",
     demo: null,
     details:"Developed a fully functional Class Attendance System that integrates geolocation-based verification for students, facial recognition authentication for attendance signing, and real-time data processing using WebSockets. The system includes role-based access control with specific functionalities for students, lecturers, Heads of Departments (HoD), and the Departmental Professors (DP) for tracking attendance and generating reports. The platform also supports features like dynamic timetable management, integration with Mpesa for payment processing, and advanced reporting tools for tracking class and department-wide attendance, CAT conformance, and timetable adherence. The mobile app supports attendance signing via GPS/Wi-Fi for students and manual sign-ins by lecturers. Facial recognition ensures students can sign in even without their personal devices.",
   },
@@ -58,7 +58,7 @@ const projects: Project[] = [
     category: "Open Source",
     image: "/assets/stk.png",
     tech: ["Django", "Python", "Mpesa API", "REST API", "Celery"],
-    github: "https://github.com/yourusername/daraja-django-package",
+    github: "https://github.com/Community-Guardian/Stk-endpoint.git",
     demo: null,
     details:
       "Developed an open-source Django package module that integrates the Mpesa PayBill API and provides a ready-to-use STK endpoint for seamless payment processing. The package simplifies integrating Mpesa payments into any Django application, with support for both PayBill and the STK push payment methods. Also includes easy configuration, error handling, and background task management using Celery.",
@@ -69,7 +69,7 @@ const projects: Project[] = [
     category: "Web Apps",
     image: "/assets/tovuweb.png",
     tech: ["Next.js", "OpenAI", "WebSocket", "Redis"],
-    github: "https://github.com",
+    github: "https://github.com/Community-Guardian/tovu_sacco_web_frontend.git",
     demo: "https://tovusacco.org/",
     details:
       "Designed and developed a comprehensive Web app for financial operations management.",
@@ -91,7 +91,7 @@ const projects: Project[] = [
     description: "Mobile app for community engagement to reduce crime",
     category: "Mobile",
     image: "/assets/community.jpeg",
-    tech: ["React Native", "Node.js", "Firebase", "Push Notifications"],
+    tech: ["React Native", "Node.js","mySQLLite",  "Push Notifications"],
     github: "https://github.com/Community-Guardian/CommunityGuardian-Frontend.git",
     demo: null,
     details:

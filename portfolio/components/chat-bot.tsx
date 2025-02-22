@@ -85,7 +85,7 @@ export function Chatbot() {
     `;
 
     try {
-      const apiKey = "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";
+      const apiKey = "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";
       if (!apiKey) throw new Error("API key is missing. Check your environment variables.");
 
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
