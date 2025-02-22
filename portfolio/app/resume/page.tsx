@@ -7,6 +7,7 @@ import Image from "next/image"
 import html2canvas from "html2canvas"
 import jsPDF from "jspdf"
 import { useRef } from "react"
+import { link } from "fs"
 
 const experiences = [
   {
@@ -103,24 +104,28 @@ const education = [
       "Pursuing Bachelor's in Software Engineering",
       "Ongoing development of practical skills in full-stack and mobile app development",
     ],
+    link: "https://mut.ac.ke",
   },
   {
-    institution: "Murang’a University Of Technology",
+    institution: "Cisco Academy",
     degree: "Introduction to Data Analysis",
     duration: "2023.05 - 2023.06",
     achievements: ["Learned foundational data analysis techniques"],
+    link: "https://www.credly.com/badges/9ac4a9cf-57a6-4468-93f8-d00a132e5c58",
   },
   {
-    institution: "Murang’a University Of Technology",
+    institution: "Cisco Academy",
     degree: "Introduction to IoT",
     duration: "2023.07 - 2023.08",
     achievements: ["Explored Internet of Things (IoT) technologies"],
+    link: "https://www.credly.com/badges/231057f2-8c67-4211-a725-2bf6ac766fff",
   },
   {
-    institution: "Murang’a University Of Technology",
+    institution: "Cisco Academy",
     degree: "Networking Essentials",
     duration: "2023.08 - 2023.09",
     achievements: ["Gained knowledge in networking fundamentals"],
+    link: "https://www.credly.com/badges/99bc5645-a771-4d90-9058-2ccd6325bed9",
   },
 ];
 
@@ -198,10 +203,10 @@ export default function ResumePage() {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Resume</h1>
         <div className="flex flex-wrap gap-2">
-          <Button onClick={generatePDF} className="w-full sm:w-auto">
+          {/* <Button onClick={generatePDF} className="w-full sm:w-auto">
             <Download className="mr-2 h-4 w-4" />
             Download Portfolio
-          </Button>
+          </Button> */}
           <a href="/assets/Benjamins Cv.pdf" download="Benjamin_Karanja_Resume.pdf">
             <Button variant="outline" className="w-full sm:w-auto">
               <Download className="mr-2 h-4 w-4" />
@@ -276,6 +281,9 @@ export default function ResumePage() {
                       <li key={index}>{achievement}</li>
                     ))}
                   </ul>
+                 {edu.link && <a href={edu.link} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    View Certificate
+                  </a>}
                 </CardContent>
               </Card>
             ))}
