@@ -208,7 +208,7 @@ export default function ResumePage() {
             Download Portfolio
           </Button> */}
           <a href="/assets/Benjamins Cv.pdf" download="Benjamin_Karanja_Resume.pdf">
-            <Button variant="outline" className="w-full sm:w-auto">
+            <Button className="w-full sm:w-auto">
               <Download className="mr-2 h-4 w-4" />
               Download Resume
             </Button>
@@ -226,8 +226,8 @@ export default function ResumePage() {
             <h2 className="text-2xl md:text-3xl font-bold">Benjamin Karanja Njoroge</h2>
             <p className="text-lg text-muted-foreground">Full Stack Developer</p>
             <p className="text-sm md:text-base text-muted-foreground">
-              Passionate full-stack developer with 5+ years of experience in building modern web applications.
-              Specialized in React, Node.js, and cloud technologies.
+              Passionate full-stack developer with 3+ years of experience in building modern web applications.
+              Specialized in React, Node.js, and cloud technologies. Download my resume for more details.
             </p>
           </div>
         </section>

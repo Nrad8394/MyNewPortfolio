@@ -141,19 +141,19 @@ export default function ContactPage() {
 
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://github.com" target="_blank">
+              <Link href="https://github.com/Nrad8394" target="_blank">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://linkedin.com" target="_blank">
+              <Link href="www.linkedin.com/in/benjamin-karanja-93852523b" target="_blank">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="mailto:contact@example.com">
+              <Link href="mailto:benjaminkaranja8393official@gmail.com">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>

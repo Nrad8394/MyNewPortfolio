@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   title: "Karanja Benjamin | Software Engineer & Tech Enthusiast",
   description: "Showcasing my expertise in web and mobile development, featuring projects, experience, and technical skills.",
   icons: "/assets/favicon.ico",
-  viewport: "width=device-width, initial-scale=1.0",
-  themeColor: "#1a202c",
+  // viewport: "width=device-width, initial-scale=1.0",
+  // themeColor: "#1a202c",
   other: {
     "theme-color": "#1a202c",
     author: "Karanja Benjamin",

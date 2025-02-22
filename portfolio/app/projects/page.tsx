@@ -112,7 +112,7 @@ const projects: Project[] = [
     title: "CarIgnition Vehicle Security Prototype",
     description: "IoT-based prototype for vehicle security and automation",
     category: "IoT",
-    image: "/assets/placeholder.svg",
+    image: "/assets/remote car ignition.jpeg",
     tech: ["IoT", "Node.js", "Bluetooth", "Encryption"],
     github: "https://github.com/REMOTE-CAR-IGNITION/RemoteCarIgnition-Frontend.git",
     demo: null,
