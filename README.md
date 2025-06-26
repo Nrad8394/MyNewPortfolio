@@ -2,6 +2,10 @@
 
 This is a **Next.js** portfolio app that showcases my projects, skills, experience, and certifications. The app is designed to be lightweight, fast, and interactive, providing an engaging way for visitors to explore my work.
 
+## 🚀 Live Demo
+
+Visit the live website: [karanjasoftwareengineer.great-site.net](http://karanjasoftwareengineer.great-site.net)
+
 ## 🚀 Features
 
 - **Professional Profile** – Displays personal details, career summary, and expertise.  
