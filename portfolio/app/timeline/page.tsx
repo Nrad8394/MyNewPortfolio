@@ -12,6 +12,21 @@ import { link } from "fs"
 
 const timelineItems: TimelineItem[] = [
   {
+    id: "12",
+    title: "ICT Intern — Presidential Digital Talent Programme (PDTP) Cohort X",
+    subtitle: "ICT Authority (ICTA), deployed to Kenya Revenue Authority (KRA)",
+    date: "Jan 2026 - Present",
+    link: "https://icta.go.ke",
+    description:
+      "Selected into PDTP Cohort X and deployed to the Kenya Revenue Authority, working on public-sector ICT systems.",
+    type: "work",
+    details: [
+      "Selected into a competitive national ICT graduate programme run by the ICT Authority.",
+      "Deployed to the Kenya Revenue Authority to work on enterprise public-sector systems.",
+      "Working to government standards for security, compliance and change management.",
+    ],
+  },
+  {
     id: "1",
     title: "Bachelor of Science in Software Engineering",
     subtitle: "Murang’a University Of Technology",

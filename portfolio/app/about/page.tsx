@@ -98,6 +98,11 @@ export default function AboutPage() {
             user-friendly applications. I believe great development isn’t just about code, but about solving problems
             with innovative solutions.
           </p>
+          <p className="text-lg text-muted-foreground">
+            Since January 2026 I’ve been an ICT intern with the ICT Authority of Kenya under the
+            Presidential Digital Talent Programme (PDTP), Cohort X, deployed to the Kenya Revenue
+            Authority — working on public-sector systems at national scale.
+          </p>
 
           <div className={`transition-all duration-500 ${expandedBio ? "max-h-[500px]" : "max-h-0"} overflow-hidden`}>
             <p className="text-lg text-muted-foreground">

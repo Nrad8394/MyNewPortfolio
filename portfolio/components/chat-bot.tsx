@@ -42,7 +42,15 @@ PROFILE:
 Name: Benjamin Karanja Njoroge
 Location: Nairobi, Kenya
 Education: BSc in Software Engineering (Murang'a University of Technology, 2021 - 2025)
-Experience: Professional & freelance work in web, mobile, AI, and cybersecurity.
+
+CURRENT ROLE (since January 2026):
+ICT Intern with the ICT Authority of Kenya (ICTA) under the Presidential Digital Talent
+Programme (PDTP), Cohort X, deployed to the Kenya Revenue Authority (KRA). This is a
+competitive national ICT graduate programme; interns are placed with government bodies to
+work on public-sector systems. If asked "what is he doing now" or "is he available", lead
+with this.
+
+Earlier experience: Professional & freelance work in web, mobile, AI, and cybersecurity.
 
 EXPERTISE:
 Full-Stack Development: Django (DRF), React, Next.js, TypeScript, Tailwind CSS, PostgreSQL.

@@ -11,6 +11,18 @@ import { link } from "fs"
 
 const experiences = [
   {
+    company: "ICT Authority (ICTA) — deployed to Kenya Revenue Authority (KRA)",
+    role: "ICT Intern, Presidential Digital Talent Programme (PDTP) Cohort X",
+    duration: "2026.01 - Present",
+    description:
+      "Selected into the ICT Authority's Presidential Digital Talent Programme (PDTP) Cohort X and deployed to the Kenya Revenue Authority (KRA). Working within a government ICT environment on public-sector systems, alongside structured mentorship and professional development delivered through the programme.",
+    achievements: [
+      "Selected into PDTP Cohort X, a competitive national ICT graduate programme run by the ICT Authority",
+      "Deployed to the Kenya Revenue Authority, contributing to enterprise public-sector ICT systems",
+      "Working to government standards for security, compliance and change management",
+    ],
+  },
+  {
     company: "Harmosoft",
     role: "Intern and Software Developer",
     duration: "2024.04 - 2024.07",

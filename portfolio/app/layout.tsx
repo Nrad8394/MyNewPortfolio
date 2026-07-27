@@ -12,7 +12,7 @@ import { AUTHOR, SITE_NAME, SITE_URL } from "@/lib/site";
 const inter = Inter({ subsets: ["latin"] });
 
 const DESCRIPTION =
-  "Portfolio of Karanja Benjamin, a full-stack software engineer in Nairobi, Kenya building web and mobile applications with Next.js, React Native, Django and TypeScript.";
+  "Portfolio of Karanja Benjamin, a full-stack software engineer in Nairobi, Kenya. Currently an ICT intern with ICTA's Presidential Digital Talent Programme (PDTP) Cohort X, deployed to the Kenya Revenue Authority. Builds web and mobile applications with Next.js, React Native, Django and TypeScript.";
 
 // themeColor and viewport are their own export in the App Router -- they are
 // ignored if left inside `metadata`.
@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     "Next.js developer",
     "React Native developer",
     "Django developer",
+    "PDTP Cohort X",
+    "Presidential Digital Talent Programme",
+    "ICT Authority Kenya intern",
+    "KRA ICT intern",
     "web development",
     "mobile development",
   ],
@@ -104,6 +108,18 @@ const personJsonLd = {
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "Murang'a University of Technology",
+  },
+  // Current placement: ICTA's Presidential Digital Talent Programme, Cohort X,
+  // deployed to KRA. worksFor is the employing body, affiliation the host.
+  worksFor: {
+    "@type": "GovernmentOrganization",
+    name: "ICT Authority (ICTA)",
+    url: "https://icta.go.ke",
+  },
+  affiliation: {
+    "@type": "GovernmentOrganization",
+    name: "Kenya Revenue Authority (KRA)",
+    url: "https://www.kra.go.ke",
   },
 };
 

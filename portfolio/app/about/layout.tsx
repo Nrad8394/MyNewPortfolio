@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 // page.tsx is a client component and cannot export metadata, so it lives here.
 const title = "About"
 const description =
-  "Get to know Karanja Benjamin: a full-stack software engineer from Nairobi, Kenya, with a BSc in Software Engineering and experience across web, mobile, AI and cybersecurity."
+  "Get to know Karanja Benjamin: a full-stack software engineer from Nairobi, Kenya, currently an ICT intern with ICTA's PDTP Cohort X deployed to the Kenya Revenue Authority, with a BSc in Software Engineering and experience across web, mobile, AI and cybersecurity."
 
 export const metadata: Metadata = {
   title,

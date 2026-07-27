@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 
 const title = "Resume"
 const description =
-  "Resume of Karanja Benjamin, software engineer in Nairobi, Kenya: education, professional experience, technical skills and certifications."
+  "Resume of Karanja Benjamin, software engineer in Nairobi, Kenya. Currently an ICT intern with ICTA's Presidential Digital Talent Programme (PDTP) Cohort X, deployed to the Kenya Revenue Authority. Education, experience, skills and certifications."
 
 export const metadata: Metadata = {
   title,
