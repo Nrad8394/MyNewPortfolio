@@ -94,10 +94,27 @@ Note `/` and `/home` are near-identical even ignoring this — consider dropping
 1. **Google Search Console** — <https://search.google.com/search-console>. Verify the domain,
    submit `https://karanjasoftwareengineer.great-site.net/sitemap.xml`, then "Request indexing" for
    the homepage. Without this, expect to wait weeks.
-2. **Check the free host doesn't block crawlers.** Free tiers (including `.great-site.net`) often
-   serve an interstitial, a JS challenge, or ads to non-browser user agents. If Googlebot gets that
-   instead of your HTML, **nothing else in this document matters.** Test with Search Console's URL
-   Inspection → "View crawled page" and confirm it sees your real markup.
+2. ~~Check the free host doesn't block crawlers.~~ **Tested 2026-07-27 — results below.**
+
+   InfinityFree (`.great-site.net`) serves an `aes.js` JavaScript cookie challenge to most
+   non-browser clients: an 865-byte page that computes a `__test` cookie and redirects to `/?i=1`.
+   Measured by request, same URL, only the User-Agent varying:
+
+   | Client | Gets | Verdict |
+   |---|---|---|
+   | Googlebot | Real HTML, 180 KB | **Not blocked** — whitelisted, indexing is fine |
+   | LinkedInBot | 865-byte JS challenge | **Blocked** |
+   | WhatsApp | 865-byte JS challenge | **Blocked** |
+   | Generic browser UA | 865-byte JS challenge | Passes once JS runs |
+
+   So search indexing works, but **link previews on LinkedIn and WhatsApp cannot work on this
+   host** no matter what the metadata says — those crawlers never see your `<meta>` tags. This is
+   a hosting limitation, not something fixable in code.
+
+   The fix is a host that serves static files without a challenge. **Cloudflare Pages, GitHub Pages
+   and Netlify are all free**, all serve a Next static export directly, and GitHub Pages is
+   near-trivial here since the repo already lives on GitHub. Any of them would fix previews, give
+   you real HTTPS, and drop the `?i=1` redirect.
 3. **A custom domain** would help more than any code change here. Free-host subdomains carry little
    trust and cannot be moved with you. When you get one, set `NEXT_PUBLIC_SITE_URL` in
    `portfolio/.env`, update `public/sitemap.xml` and `public/robots.txt`, and rebuild.

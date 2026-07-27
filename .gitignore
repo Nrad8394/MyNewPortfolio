@@ -69,7 +69,7 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
-# Source archives -- the tree is already in version control
+# Source archives and deploy bundles -- the tree is already in version control
 *.zip
 
 # Yarn Integrity file
