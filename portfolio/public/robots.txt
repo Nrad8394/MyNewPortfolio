@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_next/
+
+Sitemap: https://karanjasoftwareengineer.great-site.net/sitemap.xml
