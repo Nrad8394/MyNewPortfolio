@@ -69,15 +69,24 @@ web_modules/
 # Output of 'npm pack'
 *.tgz
 
+# Source archives -- the tree is already in version control
+*.zip
+
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
+# dotenv environment variable files -- catch every variant, keep the template
+.env*
+!.env.example
+
+# secrets / key material
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+id_rsa
+id_ed25519
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

@@ -30,12 +30,20 @@ export default function ContactPage() {
     },
   })
 
-  // EmailJS configuration (replace these with your credentials)
-  const serviceID = "service_5adhn4q"  // Replace with your service ID
-  const templateID = "template_qmcwsxb" // Replace with your template ID
-  const userID = "bFJ0Gpn0_36zLrxRT" // Replace with your user ID
+  // EmailJS identifiers. These are browser-visible by design, so they live in
+  // NEXT_PUBLIC_* vars purely so they can be rotated without a code change.
+  // Restrict the EmailJS account to this domain to stop third-party reuse.
+  const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+  const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+  const userID = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!serviceID || !templateID || !userID) {
+      console.error("EmailJS is not configured. See .env.example.")
+      alert("The contact form is unavailable right now. Please email me directly.")
+      return
+    }
+
     setIsSubmitting(true)
 
     // Create template parameters object
@@ -141,13 +149,13 @@ export default function ContactPage() {
 
           <div className="flex justify-center gap-4">
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://github.com/Nrad8394" target="_blank">
+              <Link href="https://github.com/Nrad8394" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://www.linkedin.com/in/benjamin-karanja-93852523b" target="_blank">
+              <Link href="https://www.linkedin.com/in/benjamin-karanja-93852523b" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>

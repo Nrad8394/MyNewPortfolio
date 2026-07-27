@@ -1,5 +1,21 @@
+# Security headers. Next's headers() option does nothing under `output: "export"`,
+# so Apache has to set these.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # Only send HSTS over HTTPS, and only once you are sure TLS works on every subdomain.
+  <If "%{HTTPS} == 'on'">
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+  </If>
+</IfModule>
 
-text/x-generic .htaccess ( UTF-8 Unicode text, with CRLF line terminators )
+# Do not serve dotfiles or env files even if one is uploaded by mistake.
+<FilesMatch "^\.(env|git|htpasswd)|\.(env|pem|key|p12|pfx)$">
+  Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
