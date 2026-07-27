@@ -49,26 +49,35 @@ export default function ContactPage() {
     // Create template parameters object
     const templateParams = {
       from_name: values.name,
-      to_name: "Bejamin",
+      to_name: "Benjamin",
       message: values.message,
       reply_to: values.email,
-      
     }
 
     try {
-      // Send email using EmailJS
-      const response = await emailjs.send(serviceID, templateID, templateParams, userID)
-
-      // Handle successful response
-      console.log('SUCCESS!', response.status, response.text)
+      await emailjs.send(serviceID, templateID, templateParams, userID)
       alert("Your message has been sent successfully!")
+      // Only clear the form on success -- see below.
+      form.reset()
     } catch (error) {
-      // Handle error response
-      console.error("FAILED...", error)
-      alert("Something went wrong. Please try again.")
+      // Surface EmailJS's actual reason. It reports real causes ("The service ID
+      // not found", "Account not found") that a generic message throws away,
+      // and the form silently failing is worse than an ugly message.
+      const detail =
+        typeof error === "object" && error !== null && "text" in error
+          ? String((error as { text: unknown }).text)
+          : error instanceof Error
+            ? error.message
+            : "Unknown error"
+      console.error("EmailJS send failed:", error)
+      alert(
+        `Sorry, the message could not be sent (${detail}). ` +
+          `Please email me directly at benjaminkaranja8393official@gmail.com.`
+      )
+      // Deliberately NOT resetting here: the visitor's message stays in the box
+      // so they can retry or copy it, instead of losing what they typed.
     } finally {
       setIsSubmitting(false)
-      form.reset()
     }
   }
 
